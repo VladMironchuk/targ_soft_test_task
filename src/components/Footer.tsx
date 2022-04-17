@@ -32,12 +32,20 @@ const Footer: React.FC = () => (
     <nav>
       <List>
         <li>
-          <a href="https://www.linkedin.com/in/vladislav-mironchuk-816053216/">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.linkedin.com/in/vladislav-mironchuk-816053216/"
+          >
             <img style={{ width: 24 }} src={LinkedinLogo} alt="linkedin" />
           </a>
         </li>
         <li>
-          <a href="https://github.com/VladMironchuk">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://github.com/VladMironchuk"
+          >
             <img style={{ width: 24 }} src={GithubLogo} alt="github" />
           </a>
         </li>
