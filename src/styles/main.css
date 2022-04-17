@@ -20,3 +20,38 @@
 .form-group {
   margin-bottom: 0.5rem;
 }
+
+.dx-g-bs4-sorting-indicator {
+  top: 0;
+  font-size: 15px;
+}
+
+.oi-arrow-thick-top:before {
+  content: '\1F815';
+  color: #212529;
+}
+
+.oi-arrow-thick-bottom:before {
+  content: '\1F817';
+  color: #212529;
+}
+
+.btn-link {
+  color: #212529;
+  text-decoration: none;
+}
+
+.text-primary .dx-rg-bs4-table-header-title {
+  color: #212529 !important;
+  transform: scale(1.05);
+  text-decoration: underline;
+}
+
+footer img:hover {
+  transform: scale(1.1);
+  transition: all 300ms;
+}
+
+main * {
+  background: #fff;
+}

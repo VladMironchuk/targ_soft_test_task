@@ -17,7 +17,7 @@ const ResetWidthButton: React.FC<ResetWidthButtonProps> = (props) => {
         fontSize: '1em',
       }}
     >
-      Reset widths to default
+      Reset columns widths to default
     </button>
   );
 };

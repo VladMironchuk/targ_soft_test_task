@@ -4,10 +4,17 @@ interface Props {
   id: string;
   placeholdrer: string;
   value: string;
+  errorMesage: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-const TextInput: React.FC<Props> = ({ id, placeholdrer, value, onChange }) => (
+const TextInput: React.FC<Props> = ({
+  id,
+  placeholdrer,
+  value,
+  onChange,
+  errorMesage,
+}) => (
   <div className="form-group">
     <label htmlFor={id}>Title</label>
     <input
@@ -18,6 +25,7 @@ const TextInput: React.FC<Props> = ({ id, placeholdrer, value, onChange }) => (
       value={value}
       onChange={onChange}
     />
+    <p style={{ color: 'red' }}>{errorMesage}</p>
   </div>
 );
 

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import ReactDOM from 'react-dom';
 
-const Background = styled.div`
+const BackgroundView = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -10,9 +10,9 @@ const Background = styled.div`
   background: rgba(0, 0, 0, 0.5);
   z-index: 4;
 `;
-export default function BackgroundElem() {
+export default function Background() {
   return ReactDOM.createPortal(
-    <Background />,
+    <BackgroundView />,
     document.getElementById('background') as HTMLElement
   );
 }

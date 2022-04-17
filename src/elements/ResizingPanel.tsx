@@ -1,4 +1,3 @@
-import { ModeSelectorProps } from './ModelSelector';
 import ResetWidthButton, { ResetWidthButtonProps } from './ResetWidthButton';
 import {
   Plugin,
@@ -8,9 +7,7 @@ import {
 import { modalActions } from '../redux/slices/modal';
 import { useDispatch } from 'react-redux';
 
-const ResizingPanel: React.FC<ResetWidthButtonProps & ModeSelectorProps> = (
-  props
-) => {
+const ResizingPanel: React.FC<ResetWidthButtonProps> = (props) => {
   const dispatch = useDispatch();
 
   const onToggleAddingTitleModal = () => {

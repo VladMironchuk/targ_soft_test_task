@@ -3,12 +3,14 @@ import './styles/main.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TableGrid from './components/Grid';
-import BackgroundElem from './components/Background';
+import Background from './components/Background';
 import AddingTitleModal from './components/AddingTitleModal';
 import { RootState } from './redux/store';
 import { Post, postsAction } from './redux/slices/posts';
 import SubmitEditingModal from './components/SubmitDeletingModal';
 import { fetchPosts } from './utils/getPosts';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   const isBackgroundVisible = useSelector(
@@ -36,9 +38,11 @@ function App() {
   return (
     <>
       {isSubmitDeletingModalVisible && <SubmitEditingModal />}
-      {isBackgroundVisible && <BackgroundElem />}
+      {isBackgroundVisible && <Background />}
       {isAddingTitleModalVisible && <AddingTitleModal />}
+      <Header />
       <TableGrid posts={posts} />
+      <Footer />
     </>
   );
 }

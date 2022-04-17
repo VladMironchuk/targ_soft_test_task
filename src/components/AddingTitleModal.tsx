@@ -9,6 +9,9 @@ const AddingTitleForm: React.FC = () => {
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
+  const [titleErrorMessage, setTitleErrorMessage] = useState('');
+  const [bodyErrorMessage, setBodyErrorMessage] = useState('');
+
   const dispatch = useDispatch();
 
   const onCloseModal = () => {
@@ -18,6 +21,20 @@ const AddingTitleForm: React.FC = () => {
 
   const onSubmit: FormEventHandler = (event) => {
     event.preventDefault();
+
+    setTitleErrorMessage('');
+    setBodyErrorMessage('');
+
+    if (!title.trim()) {
+      setTitleErrorMessage('Enter valid title');
+      return;
+    }
+
+    if (!body.trim()) {
+      setBodyErrorMessage('Enter valid body');
+      return;
+    }
+
     dispatch(
       postsAction.addPost({
         post: {
@@ -45,12 +62,14 @@ const AddingTitleForm: React.FC = () => {
           placeholdrer="Enter title"
           value={title}
           onChange={onChangeTitle}
+          errorMesage={titleErrorMessage}
         />
         <TextInput
           id="body"
           placeholdrer="Enter body"
           value={body}
           onChange={onChangeBody}
+          errorMesage={bodyErrorMessage}
         />
         <button type="submit" className="btn btn-primary">
           Submit

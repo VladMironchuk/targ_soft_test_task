@@ -22,6 +22,13 @@ import ResizingPanel from '../elements/ResizingPanel';
 import { TableColumnWidthInfo } from '@devexpress/dx-react-grid';
 import { useDispatch } from 'react-redux';
 import { modalActions } from '../redux/slices/modal';
+import styled from 'styled-components';
+
+const Main = styled.main`
+  position: relative;
+  min-height: calc(100vh - 128px);
+  background: #ccc;
+`;
 
 const TableGrid: React.FC<{ posts: Post[] }> = ({ posts }) => {
   const dispatch = useDispatch();
@@ -40,10 +47,9 @@ const TableGrid: React.FC<{ posts: Post[] }> = ({ posts }) => {
     { columnName: 'body', width: 500 },
   ]);
 
-  const [pageSizes] = useState([5, 10, 15, 0]);
+  const [pageSizes] = useState([10, 15, 20, 0]);
 
   const [columnWidths, setColumnWidths] = useState(defaultColumnWidths);
-  const [resizingMode, setResizingMode] = useState('widget');
 
   const resetWidths = () => {
     setColumnWidths(defaultColumnWidths);
@@ -64,7 +70,7 @@ const TableGrid: React.FC<{ posts: Post[] }> = ({ posts }) => {
   };
 
   return (
-    <>
+    <Main>
       {posts ? (
         //@ts-ignore
         <Grid rows={posts} columns={columns}>
@@ -78,22 +84,17 @@ const TableGrid: React.FC<{ posts: Post[] }> = ({ posts }) => {
           <TableColumnResizing
             columnWidths={columnWidths}
             onColumnWidthsChange={onColumnWidthsChange}
-            resizingMode={resizingMode}
           />
           <TableHeaderRow showSortingControls />
           <PagingPanel pageSizes={pageSizes} />
           <TableEditRow />
           <TableEditColumn showDeleteCommand />
-          <ResizingPanel
-            defaultValue={resizingMode}
-            changeMode={setResizingMode}
-            resetWidths={resetWidths}
-          />
+          <ResizingPanel resetWidths={resetWidths} />
         </Grid>
       ) : (
         <div>No data</div>
       )}
-    </>
+    </Main>
   );
 };
 
